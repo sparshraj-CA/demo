@@ -1,0 +1,54 @@
+<h1 style="margin-left:12cm;font-size:2cm"><b><u>Welcome to CredMarket!!</u></b></h1> 
+
+<div style="font-size:22px">
+<%= link_to "Sell Your Product", new_item_path %><br><br>
+<%= link_to "Buy Products", customers_path %>
+</div>
+
+<div style="text-align:right;font-size:22px">
+<%= form_with url: "/items/search", method: :get do |form| %>
+  <%= form.label :query, "Search By Product Name:" %>
+  <%= form.text_field :query %><br>
+  <%= form.submit "Search Product" %>
+<% end %>
+<%= @msg %>
+</div>
+
+<br><br>
+<div style="margin-left:13.5cm">
+<table border="1"  cellpadding="15" >
+<tr>
+    <th>Product ID</th>
+    <th>Name</th>
+    <th>Available Qty</th>
+    <th>Price</th>
+    <th>Last Update</th>
+  </tr>
+  <% @items.each do |item| %>
+  <tr>
+  
+    <td>
+    <a href="/items/<%= item.id %>">
+      <%= item.pid %>
+      </a>
+    </td>
+    <td>
+    <%= item.name %>
+    </td>
+    <td>
+    <%= item.qty %>
+    </td>
+    <td>
+    Rs. <%= item.price %>
+    </td>
+   <td>
+     <%= item.updated_at %>
+    </td>
+  <% end %>
+  </tr>
+</table>
+</div>
+
+
+
+

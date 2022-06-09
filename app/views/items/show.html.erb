@@ -1,0 +1,39 @@
+<h1 style="margin-left:12cm;font-size:2cm"><b><u>Welcome to CredMarket!!</u></b></h1> 
+
+<p> <a href="/items">Go to Homepage</a></p>
+
+<div style="margin-left:12.5cm; text-align:center">
+<table border="1"  cellpadding="15" >
+<tr>
+    <th>Product ID</th>
+    <th>Name</th>
+    <th>Available Qty</th>
+    <th>Price</th>
+    <th>Last Update</th>
+    <th colspan=2>Actions</th>
+  </tr>
+  
+  <tr>
+    <td>
+      <%= @item.pid %>
+    </td>
+    <td>
+    <%= @item.name %>
+    </td>
+    <td>
+    <%= @item.qty %>
+    </td>
+    <td>
+    Rs. <%= @item.price %>
+    </td>
+    <td>
+    <%= @item.updated_at %>
+    <td>
+    <%= link_to "Edit Details", edit_item_path(@item) %>
+   </td>
+   <td>
+   <%= link_to "Delete Item", item_path(@item), data: { turbo_method: :delete, turbo_confirm: "Confirm Delete!" } %>
+   </td>
+  </tr>
+</table>
+</div>

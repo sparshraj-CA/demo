@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cid: MyString
+  pid: MyString
+  qty: 1
+  bill: 1.5
+  item: one
+  customer: one
+
+two:
+  cid: MyString
+  pid: MyString
+  qty: 1
+  bill: 1.5
+  item: two
+  customer: two

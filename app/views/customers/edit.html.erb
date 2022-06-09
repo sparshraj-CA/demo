@@ -1,0 +1,30 @@
+
+<h1 style="text-align: center;font-size:1.4cm"><b><u>Hello Customer!!<br>Update your profile.</u></b></h1> 
+<p style="font-size: 20px"> <a href="/items">Go to Homepage</a></p><br>
+
+<div style="margin-left:22cm; font-size: 20px">
+
+<%= form_with model: @customer do |form| %>
+  <div>
+    <%= form.label :Profile_ID %><br>
+    <%= form.text_field :cid,required: true  %>
+    <%  @customer.errors.full_messages_for(:cid).each do |message| %>
+        <div><%= message %></div>
+        <% end %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :Update_Wallet_Balance %><br>
+    <%= form.text_field :wallet %>
+    <%  @customer.errors.full_messages_for(:wallet).each do |message| %>
+        <div><%= message %></div>
+        <% end %>
+  </div>
+  <br>
+
+  <div> 
+    <%= form.submit %>
+  </div>
+<% end %>
+
+</div>

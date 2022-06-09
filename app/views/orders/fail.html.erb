@@ -1,0 +1,14 @@
+<h1 style="text-align:center;font-size:2cm"><b><u>Welcome to CredMarket!!</u></b></h1>
+<h2 style="text-align:center;font-size:1.5cm"><b><u>Sorry!! Your order couldn't be placed because of insufficient wallet balance :( </u></b></h1> 
+
+<p style="font-size: 20px"> <a href="/items">Go back to Shopping :)</a></p><br>
+<div style="text-align: right; font-size:20px">
+Hello <b><%= @customer.cid %></b> <br>
+Wallet: <b>Rs. <%= @customer.wallet %></b><br>
+<%= link_to "Update Wallet", edit_customer_path(@customer) %>
+</div>
+
+
+<div style="text-align:center;font-size:1cm">
+<%= link_to "Add amount to Wallet", edit_customer_path(@customer) %>
+</div>

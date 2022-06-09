@@ -1,0 +1,49 @@
+<h1 style="margin-left:12cm;font-size:2cm"><b><u>Welcome to CredMarket!!</u></b></h1> 
+
+<p> <a href="/items">Go to Homepage</a></p>
+
+<div style="text-align: right; font-size:20px">
+Hello <b><%= @customer.cid %></b> <br>
+Wallet: <b>Rs. <%= @customer.wallet %></b><br>
+<%= link_to "Update Wallet", edit_customer_path(@customer) %>
+</div>
+
+<div style="margin-left:12.5cm; text-align:center">
+<table border="1"  cellpadding="15" >
+<tr>
+    <th>Product ID</th>
+    <th>Name</th>
+    <th>Available Qty</th>
+    <th>Price</th>
+    <th>Last Update</th>
+    <th colspan=2>Actions</th>
+  </tr>
+  
+  <tr>
+    <td>
+      <%= @item.pid %>
+    </td>
+    <td>
+    <%= @item.name %>
+    </td>
+    <td>
+    <%= @item.qty %>
+    </td>
+    <td>
+    Rs. <%= @item.price %>
+    </td>
+    <td>
+    <%= @item.updated_at %>
+    </td>
+    <td>  
+    <%= form_with url: "/orders/placeorder/#{@customer.id}/#{@item.id}", method: :get do |form| %>
+        <%= form.label :qty, "Enter Qty:" %>
+        <%= form.text_field :qty %><br><br>
+        <%= form.submit "Buy Item" %>
+        <% end %>
+   </td>
+
+  </tr>
+</table>
+</div>
+

@@ -1,0 +1,48 @@
+<h1 style="text-align: center;font-size:1.7cm"><b><u>Welcome to CredMarket!!</u></b></h1> 
+<h1 style="text-align: center;font-size:1.4cm"><b><u>Hello Customer!!</u></b></h1> 
+
+<br><br>
+<div style="font-size: 20px;">
+<p> <a href="/items">Go to Homepage</a></p>
+</div>
+
+<h2 style="text-align: center">Select Profile to Proceed</h2>
+<div style="text-align: center; margin-left: 14cm">
+<table border="1"  cellpadding="15" >
+<tr>
+    <th>Profile ID</th>
+    <th>Wallet Balance</th>
+    <th>Last Used</th>
+    <th colspan=2>Accessibilities</th>
+  </tr>
+  <% @customers.each do |customer| %>
+  <tr>
+  
+    <td>
+      <%= customer.cid %>
+    </td>
+    <td>
+     <%= customer.wallet %>
+    </td>
+   <td>
+     <%= customer.updated_at %>
+    </td>
+    <td>
+    <a href="/orders/<%= customer.cid %>">
+    Proceed to Shopping
+    </a>
+    </td>
+    <td>
+    <%= link_to "Update Profile", edit_customer_path(customer) %>
+    </td>
+  <% end %>
+  </tr>
+</table>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+<p style="font-size: 20px"> <a href="/items">Go to Homepage</a></p><br>
+
+<div style="margin-left:18cm">
+
+<%= form_with model: @item do |form| %>
+  <div>
+    <%= form.label :pid %><br>
+    <%= form.text_field :pid %>
+    <% @item.errors.full_messages_for(:pid).each do |message| %>
+        <div><%= message %></div>
+        <% end %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% @item.errors.full_messages_for(:name).each do |message| %>
+        <div><%= message %></div>
+        <% end %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :qty %><br>
+    <%= form.text_field :qty %>
+    <% @item.errors.full_messages_for(:qty).each do |message| %>
+        <div><%= message %></div>
+        <% end %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :price%><br>
+    <%= form.text_field :price %>
+    <% @item.errors.full_messages_for(:price).each do |message| %>
+        <div><%= message %></div>
+        <% end %>
+  </div>
+<br><br>
+  <div style="margin-left:1.5cm; height: 30px; width: 30px">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+</div>
