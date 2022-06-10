@@ -1,0 +1,55 @@
+<h1 style="text-align: center;font-size:1.7cm"><b><u>Welcome to CredMarket!!</u></b></h1> 
+<h1 style="text-align: center;font-size:1.4cm"><b><u>Hello <%= @customer.cid %>!!</u></b></h1> 
+
+<br><br>
+<div style="font-size: 20px;">
+<p> <a href="/items">Go to Homepage</a></p>
+</div>
+
+<ul style="float: right; font-size: 22px">
+<li>Profile ID: <b><%= @customer.cid %></b></li>
+<li>Wallet Balance: <b><%= @customer.wallet %></b></li>
+<li>Last Used: <b><%= @customer.updated_at %></b> </li>
+</ul>
+<br><br>
+
+<h2 style="margin-left:21cm">Past order details</h2>
+
+<div style="text-align: center; margin-left: 15cm">
+<table border="1"  cellpadding="15" >
+<tr>
+    <th>Order ID</th>
+    <th>Order Date & Time</th>
+    <th>Product ID</th>
+    <th>Order Qty</th>
+    <th>Bill Amount</th>
+  </tr>
+  <% @orders.each do |order| %>
+  <tr>
+  
+    <td>
+      <%= order.id %>
+    </td>
+    <td>
+     <%= order.updated_at %>
+    </td>
+    <td>
+     <%= order.pid %>
+    </td>
+   <td>
+     <%= order.qty %>
+    </td>
+    <td>
+    Rs. <%= order.bill %>
+    </td>
+  <% end %>
+  </tr>
+</table>
+</div>
+
+
+
+
+
+
+

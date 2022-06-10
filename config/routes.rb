@@ -8,12 +8,14 @@ Rails.application.routes.draw do
 
   resources :items
   resources :customers
-  # resources :orders
+  #resources :orders
 
-  resources :customers do 
-      resources :items do
-    end
-  end
+  # resources :customers do 
+  #   resources :orders do
+  #     resources :items do
+  #     end
+  #   end
+  # end
 
   get "/orders/:cid", to: "orders#index"
   get "/orders/buy/:cid/:itemid", to: "orders#buy"

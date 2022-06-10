@@ -19,6 +19,11 @@ class CustomersController < ApplicationController
     end
   end
 
+  def show
+    @customer = Customer.find(params[:id])
+    @orders = Order.where(cid: @customer.cid)
+  end
+
   private
     def customer_params
       params.require(:customer).permit(:cid, :wallet)

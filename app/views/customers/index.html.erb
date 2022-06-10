@@ -13,7 +13,7 @@
     <th>Profile ID</th>
     <th>Wallet Balance</th>
     <th>Last Used</th>
-    <th colspan=2>Accessibilities</th>
+    <th colspan=3>Accessibilities</th>
   </tr>
   <% @customers.each do |customer| %>
   <tr>
@@ -30,6 +30,11 @@
     <td>
     <a href="/orders/<%= customer.cid %>">
     Proceed to Shopping
+    </a>
+    </td>
+    <td>
+    <a href="/customers/<%= customer.id %>">
+    Previous Orders
     </a>
     </td>
     <td>

@@ -26,11 +26,37 @@ class OrdersController < ApplicationController
             @customer.wallet-=@tot
             @customer.wallet=@customer.wallet.round
             @customer.save
-            # binding.pry
-            render "/orders/success" 
+            
+            @order = Order.new(cid: @customer.cid, pid: @item.pid, qty: @qty, bill: @tot, item_id: params[:itemid], customer_id: params[:cid]  )
+            #binding.pry
+            if @order.save
+                render "/orders/success" 
+            else
+                @msg = "invalid order details."
+                render "/orders/fail"
+            end
         else
+            @msg = "insufficient wallet balance."
             render "/orders/fail"
         end        
     end
 
+    # def new
+    #     @order = Item.new
+    #   end
+    
+    #   def create
+    #     @order = Item.new(cid: params[:cid], pid: params[:pid], qty: params[:qty], bill: params[:tot])
+    
+    #     if @order.save
+    #       redirect_to @order
+    #     else
+    #       render :new, status: :unprocessable_entity
+    #     end
+    #   end
+
+    private
+    def order_params
+      params.require(:order).permit(:cid, :pid, :qty, :bill)
+    end
 end
