@@ -1,0 +1,58 @@
+<h1 style="text-align: center;font-size:1.7cm"><b><u>Welcome to CredMarket!!</u></b></h1> 
+<h1 style="text-align: center;font-size:1.4cm"><b><u>Hello <%= @customer.cid %>!!</u></b></h1> 
+
+<div style="font-size: 20px;">
+<p> <a href="/items">Go to Homepage</a></p>
+<p style="font-size: 20px"> <a href="/items">Continue Shopping :)</a></p>
+</div>
+
+<ul style="float: right; font-size: 22px">
+<li>Profile ID: <b><%= @customer.cid %></b></li>
+<li>Wallet Balance: Rs. <b><%= @customer.wallet %></b></li>
+<li>Last Used: <b><%= @customer.updated_at %></b> </li>
+</ul>
+<br><br>
+
+<h2 style="margin-left:22cm">Wishlist details</h2>
+
+<div style="margin-left:14.5cm; text-align:center">
+<table border="1"  cellpadding="15" >
+<tr>
+    <th>Product ID</th>
+    <th>Name</th>
+    <th>Available Qty</th>
+    <th>Price</th>
+    <th>Last Update</th>
+  </tr>
+  <% @items.each do |item| %>
+  <tr>
+    <td>
+      <%= item.pid %>
+    </td>
+    <td>
+    <%= item.name %>
+    </td>
+    <td>
+    <%= item.qty %>
+    </td>
+    <td>
+    Rs. <%= item.price %>
+    </td>
+    <td>
+    <%= item.updated_at %>
+    </td>
+    <td>
+    <a href="/orders/buy/<%= @customer.id %>/<%= item.id %>">
+      Shop Item
+    </a>
+    </td>
+    <td>
+    <a href="/customers/delwishlist/<%= @customer.id %>/<%= item.id %>">
+      Delete Item from Wishlist
+    </a>
+    </td>
+    <% end %>
+    </tr>
+
+</table>
+</div>

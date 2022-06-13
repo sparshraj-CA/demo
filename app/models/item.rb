@@ -4,5 +4,10 @@ class Item < ApplicationRecord  #/^A\d{3}$/
     validates :qty, presence: true, comparison: {greater_than: 0}, numericality: { only_integer: true }
     validates :price, presence: true, comparison: {greater_than: 0}, numericality: { only_float: true }
 
-    has_many :customers, through :orders
+    #has_many :customers, through {:orders, :wishlists}, disable_joins: true
+
+    def customers
+        Customer.joins([{orders: :cid}, {wishlist: :cid}])
+               .where(users: {id: self.id})
+      end
 end

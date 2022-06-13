@@ -20,5 +20,8 @@ Rails.application.routes.draw do
   get "/orders/:cid", to: "orders#index"
   get "/orders/buy/:cid/:itemid", to: "orders#buy"
   get "/orders/placeorder/:cid/:itemid", to: "orders#placeorder"
- 
+  get "/customers/wishlist/:cid/:itemid", to: "customers#wishlist"
+  get "/customers/delwishlist/:cid/:itemid", to: "customers#delwishlist"
+  get "/customers/viewwishlist/:cid/", to: "customers#viewwishlist"
+
 end

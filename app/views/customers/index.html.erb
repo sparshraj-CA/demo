@@ -7,13 +7,13 @@
 </div>
 
 <h2 style="text-align: center">Select Profile to Proceed</h2>
-<div style="text-align: center; margin-left: 14cm">
+<div style="text-align: center; margin-left: 11cm">
 <table border="1"  cellpadding="15" >
 <tr>
     <th>Profile ID</th>
     <th>Wallet Balance</th>
     <th>Last Used</th>
-    <th colspan=3>Accessibilities</th>
+    <th colspan=4>Accessibilities</th>
   </tr>
   <% @customers.each do |customer| %>
   <tr>
@@ -35,6 +35,11 @@
     <td>
     <a href="/customers/<%= customer.id %>">
     Previous Orders
+    </a>
+    </td>
+    <td>
+    <a href="/customers/viewwishlist/<%= customer.id %>">
+    View Wishlist
     </a>
     </td>
     <td>

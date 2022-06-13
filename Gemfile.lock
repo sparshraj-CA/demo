@@ -231,6 +231,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   jquery-rails
+  minitest
   pg (~> 1.1)
   pry
   puma (~> 5.0)

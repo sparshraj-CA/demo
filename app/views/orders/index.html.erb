@@ -8,7 +8,7 @@ Wallet: <b>Rs. <%= @customer.wallet %></b><br>
 <%= link_to "Update Wallet", edit_customer_path(@customer) %>
 </div>
 
-<div style="margin-left:13.5cm">
+<div style="margin-left:10.5cm">
 <table border="1"  cellpadding="15" >
 <tr>
     <th>Product ID</th>
@@ -36,6 +36,11 @@ Wallet: <b>Rs. <%= @customer.wallet %></b><br>
     </td>
    <td>
      <%= item.updated_at %>
+    </td>
+    <td>
+    <a href="/customers/wishlist/<%= @customer.id %>/<%= item.id %>">
+      Add to Wishlist
+    </a>
     </td>
     <td>
     <a href="/orders/buy/<%= @customer.id %>/<%= item.id %>">
